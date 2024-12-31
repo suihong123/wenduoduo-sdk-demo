@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wenduoduo SDK Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        #docmee-container {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ddd;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wenduoduo SDK 演示</h1>
+    
+    <!-- SDK容器 -->
+    <div id="docmee-container"></div>
+
+    <!-- 引入SDK -->
+    <script src="https://docmee.cn/sdk/docmee-ui-sdk-iframe.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                const docmeeUI = new DocmeeUI({
+                    token: 'ak_u_loy5FsT35FvozDKZ', 
+                    container: document.querySelector("#docmee-container"),
+                    page: "creator", 
+                    lang: "zh",    
+                    mode: "light",  
+                    onMessage: (message) => {
+                        console.log('SDK Message:', message);
+                    }
+                });
+
+                console.log('Wenduoduo SDK 初始化成功');
+            } catch (error) {
+                console.error('SDK初始化失败:', error);
+            }
+        });
+    </script>
+</body>
+</html>
